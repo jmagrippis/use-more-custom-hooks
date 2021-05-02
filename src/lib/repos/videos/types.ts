@@ -1,0 +1,20 @@
+export type Thumbnail = {
+	url: string
+	width: number
+	height: number
+}
+
+export type Video = {
+	id: string
+	title: string
+	description: string
+	thumbnails: {
+		default: Thumbnail
+		medium: Thumbnail
+		high: Thumbnail
+	}
+}
+
+export interface VideosInterface {
+	videos: () => Promise<Video[]>
+}

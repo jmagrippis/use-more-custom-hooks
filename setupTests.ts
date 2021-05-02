@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom/extend-expect'
+import 'isomorphic-unfetch'
 
-// workaround for next/dynamic
-// https://github.com/vercel/next.js/issues/5416
-jest.mock('next/dynamic', () => () => {
-  const DynamicComponent = () => null
-  DynamicComponent.displayName = 'LoadableComponent'
-  DynamicComponent.preload = jest.fn()
-  return DynamicComponent
-})
+import {mswServer} from 'msw/server'
+
+beforeAll(() => mswServer.listen())
+
+afterEach(() => mswServer.resetHandlers())
+
+afterAll(() => mswServer.close())
