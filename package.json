@@ -1,0 +1,64 @@
+{
+	"name": "use-more-custom-hooks",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev -p 3520",
+		"build": "next build",
+		"start": "next start",
+		"test": "jest",
+		"e2e": "cypress run",
+		"bdd": "cypress open",
+		"lint": "eslint --ext .js,.jsx,.ts,.tsx src"
+	},
+	"dependencies": {
+		"@vercel/node": "^1.10.0",
+		"next": "^10.2.0",
+		"next-compose-plugins": "^2.2.1",
+		"next-seo": "^4.24.0",
+		"next-svgr": "^0.0.2",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"tailwindcss": "^2.1.2"
+	},
+	"devDependencies": {
+		"@testing-library/cypress": "^7.0.6",
+		"@testing-library/jest-dom": "^5.12.0",
+		"@testing-library/react": "^11.2.6",
+		"@testing-library/user-event": "^13.1.8",
+		"@types/jest": "^26.0.23",
+		"@types/react": "^17.0.4",
+		"@typescript-eslint/eslint-plugin": "^4.22.0",
+		"@typescript-eslint/parser": "^4.22.0",
+		"autoprefixer": "^10.2.5",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^26.6.3",
+		"cypress": "^7.2.0",
+		"eslint": "^7.25.0",
+		"eslint-config-react-app": "^6.0.0",
+		"eslint-plugin-flowtype": "^5.7.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.3.6",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.23.2",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"eslint-plugin-testing-library": "^4.1.2",
+		"husky": "^5.0.0",
+		"jest": "^26.6.3",
+		"jest-svg-transformer": "^1.0.0",
+		"postcss": "^8.2.13",
+		"prettier": "^2.2.1",
+		"pretty-quick": "^3.1.0",
+		"typescript": "^4.2.4",
+		"vercel": "^21.3.3"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn lint && pretty-quick --staged"
+		}
+	},
+	"volta": {
+		"node": "14.16.0"
+	},
+	"license": "MIT"
+}

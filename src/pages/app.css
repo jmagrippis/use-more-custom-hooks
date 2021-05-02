@@ -1,0 +1,19 @@
+@import './tailwind.css';
+
+html,
+body {
+	height: 100%;
+	@apply text-gray-900;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body > div {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@apply font-sans font-light;
+}
