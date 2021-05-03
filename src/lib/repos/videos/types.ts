@@ -8,6 +8,7 @@ export type Video = {
 	id: string
 	title: string
 	description: string
+	link: string
 	thumbnails: {
 		default: Thumbnail
 		medium: Thumbnail

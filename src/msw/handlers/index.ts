@@ -1,3 +1,4 @@
-import {youtubeHandlers} from './youtube'
+import {episodesHandlers} from './internal/episodes'
+import {youtubeHandlers} from './external/youtube'
 
-export const handlers = [...youtubeHandlers]
+export const handlers = [...episodesHandlers, ...youtubeHandlers]

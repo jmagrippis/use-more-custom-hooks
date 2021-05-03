@@ -4,7 +4,7 @@ import GitHubIcon from './github-mark.svg'
 
 export const Header = () => (
 	<header className="w-full bg-gray-800 text-emerald-100">
-		<nav className="m-auto container flex flex-row items-center p-4">
+		<nav className="m-auto container flex flex-row items-center p-4 lg:px-0">
 			<div className="flex-grow">
 				<Link href="/">
 					<a className="transition duration-300 hover:text-emerald-300 font-thin">

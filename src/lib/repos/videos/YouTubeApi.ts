@@ -10,11 +10,12 @@ type SearchListResponseItem = {
 	snippet: Pick<Video, 'title' | 'description' | 'thumbnails'>
 }
 
-const mapItemToVideo = ({id, snippet}: SearchListResponseItem) => ({
+export const mapItemToVideo = ({id, snippet}: SearchListResponseItem) => ({
 	id: id.videoId,
 	title: snippet.title,
 	description: snippet.description,
 	thumbnails: snippet.thumbnails,
+	link: `https://www.youtube.com/watch?v=${id.videoId}`,
 })
 
 export class VideosYouTubeApiRepo implements VideosInterface {

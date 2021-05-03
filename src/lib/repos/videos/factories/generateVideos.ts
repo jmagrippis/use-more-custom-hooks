@@ -25,11 +25,13 @@ export const generateVideo = ({
 	title = faker.commerce.productName(),
 	description = faker.commerce.productDescription(),
 	thumbnails = generateThumbnails(id),
+	link = `https://www.youtube.com/watch?v=${id}`,
 }: Partial<Video> = {}): Video => ({
 	id,
 	title,
 	description,
 	thumbnails,
+	link,
 })
 
 export const generateVideos = (count: number): Video[] =>

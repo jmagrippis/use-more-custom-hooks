@@ -7,13 +7,13 @@ import {generateVideo, generateVideos} from '../videos/factories/generateVideos'
 import {VideosInMemoryRepo} from '../videos/InMemory'
 import {EpisodesApiRepo} from './Api'
 
-describe('latest', () => {
+describe('mostPopular', () => {
 	it('only returns episodes with Videos', async () => {
 		const videosRepo = new VideosInMemoryRepo([])
 		const podcastsRepo = new PodcastsInMemoryRepo(generatePodcasts(5))
 		const episodesRepo = new EpisodesApiRepo({videosRepo, podcastsRepo})
 
-		const episodes = await episodesRepo.latest()
+		const episodes = await episodesRepo.mostPopular()
 
 		expect(episodes).toHaveLength(0)
 	})
@@ -24,7 +24,7 @@ describe('latest', () => {
 		const podcastsRepo = new PodcastsInMemoryRepo([])
 		const episodesRepo = new EpisodesApiRepo({videosRepo, podcastsRepo})
 
-		const episodes = await episodesRepo.latest()
+		const episodes = await episodesRepo.mostPopular()
 
 		expect(episodes).toHaveLength(3)
 
@@ -56,7 +56,7 @@ describe('latest', () => {
 		const podcastsRepo = new PodcastsInMemoryRepo(podcasts)
 		const episodesRepo = new EpisodesApiRepo({videosRepo, podcastsRepo})
 
-		const episodes = await episodesRepo.latest()
+		const episodes = await episodesRepo.mostPopular()
 
 		expect(episodes).toEqual(
 			expect.arrayContaining([

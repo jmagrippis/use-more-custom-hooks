@@ -40,7 +40,7 @@ export class EpisodesApiRepo implements EpisodesInterface {
 		this.#podcastsRepo = podcastsRepo
 	}
 
-	latest = async () => {
+	mostPopular = async () => {
 		const [videos, podcasts] = await Promise.all([
 			this.#videosRepo.mostPopular(),
 			this.#podcastsRepo.latest(),

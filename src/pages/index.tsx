@@ -6,7 +6,7 @@ import {episodesRepo} from 'lib/repos/episodes/Api'
 const ONE_HOUR = 60 * 60
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-	const episodes = await episodesRepo.latest()
+	const episodes = await episodesRepo.mostPopular()
 
 	return {
 		props: {episodes},

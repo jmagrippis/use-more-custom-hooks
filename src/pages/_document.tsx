@@ -33,13 +33,6 @@ class CustomDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap"
 						rel="stylesheet"
 					/>
-					{/* analytics */}
-					<script
-						async
-						defer
-						data-domain="buildfirst.tech"
-						src="https://plausible.buildfirst.tech/js/index.js"
-					/>
 				</Head>
 				<body>
 					<Main />

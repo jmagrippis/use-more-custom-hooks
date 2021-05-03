@@ -7,5 +7,5 @@ export type Episode = {
 }
 
 export interface EpisodesInterface {
-	latest: () => Promise<Episode[]>
+	mostPopular: () => Promise<Episode[]>
 }

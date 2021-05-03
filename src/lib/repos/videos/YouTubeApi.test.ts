@@ -1,6 +1,7 @@
-import {videosRepo} from './YouTubeApi'
+import {generateThumbnails} from './factories/generateVideos'
+import {mapItemToVideo, videosRepo} from './YouTubeApi'
 
-describe('videos', () => {
+describe('mostPopular', () => {
 	it('returns an array of videos', async () => {
 		const videos = await videosRepo.mostPopular()
 
@@ -28,6 +29,7 @@ describe('videos', () => {
 						height: 360,
 					},
 				},
+				link: 'https://www.youtube.com/watch?v=iA5_LdfypTM',
 			},
 			{
 				id: 'mdFBhNnwRwU',
@@ -51,6 +53,7 @@ describe('videos', () => {
 						height: 360,
 					},
 				},
+				link: 'https://www.youtube.com/watch?v=mdFBhNnwRwU',
 			},
 			{
 				id: '5Omb-P9qsP4',
@@ -74,7 +77,48 @@ describe('videos', () => {
 						height: 360,
 					},
 				},
+				link: 'https://www.youtube.com/watch?v=5Omb-P9qsP4',
 			},
 		])
+	})
+})
+
+describe('mapItemToVideo', () => {
+	it('maps the videoId to id', () => {
+		const item = {
+			id: {
+				kind: 'youtube#video',
+				videoId: 'this-is-the-video-id',
+			},
+			snippet: {
+				title: 'Tailwind with SvelteKit',
+				description:
+					"How to use everyone's favourite utility-first CSS framework, Tailwind CSS, alongside the emerging new isomorphic web app framework, SvelteKit! At the time of ...",
+				thumbnails: generateThumbnails('iA5_LdfypTM'),
+			},
+		}
+
+		const video = mapItemToVideo(item)
+
+		expect(video.id).toBe('this-is-the-video-id')
+	})
+
+	it('uses the videoId to construct the link', () => {
+		const item = {
+			id: {
+				kind: 'youtube#video',
+				videoId: 'iA5_LdfypTM',
+			},
+			snippet: {
+				title: 'Tailwind with SvelteKit',
+				description:
+					"How to use everyone's favourite utility-first CSS framework, Tailwind CSS, alongside the emerging new isomorphic web app framework, SvelteKit! At the time of ...",
+				thumbnails: generateThumbnails('iA5_LdfypTM'),
+			},
+		}
+
+		const video = mapItemToVideo(item)
+
+		expect(video.link).toBe('https://www.youtube.com/watch?v=iA5_LdfypTM')
 	})
 })

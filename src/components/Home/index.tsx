@@ -1,7 +1,8 @@
+import {Episode} from 'lib/repos/episodes/types'
 import {Body} from './Body'
 
 export type HomeProps = {
-	episodes: any[]
+	episodes: Episode[]
 }
 
 const Home = ({episodes}: HomeProps) => <Body episodes={episodes} />
