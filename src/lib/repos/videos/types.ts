@@ -16,5 +16,5 @@ export type Video = {
 }
 
 export interface VideosInterface {
-	videos: () => Promise<Video[]>
+	mostPopular: () => Promise<Video[]>
 }

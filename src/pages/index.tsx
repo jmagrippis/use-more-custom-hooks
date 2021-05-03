@@ -1,12 +1,12 @@
 import {GetStaticProps} from 'next'
 
 import Home, {HomeProps} from 'components/Home'
-import {videosRepo} from 'lib/repos/videos/YouTubeApi'
+import {episodesRepo} from 'lib/repos/episodes/Api'
 
 const ONE_HOUR = 60 * 60
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-	const episodes = await videosRepo.videos()
+	const episodes = await episodesRepo.latest()
 
 	return {
 		props: {episodes},

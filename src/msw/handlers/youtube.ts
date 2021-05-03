@@ -1,5 +1,7 @@
 import {rest} from 'msw'
 
+import {generateThumbnails} from 'lib/repos/videos/factories/generateVideos'
+
 const searchResultsResponse = {
 	kind: 'youtube#searchListResponse',
 	etag: 'IEVx_BY1R5eQT5oVv5fKHsaWy8M',
@@ -18,28 +20,12 @@ const searchResultsResponse = {
 				videoId: 'iA5_LdfypTM',
 			},
 			snippet: {
-				publishedAt: '2020-12-22T19:06:12Z',
-				channelId: 'UCm1ALyg61uhPoTnZBm7mY2g',
 				title: 'Tailwind with SvelteKit',
 				description:
 					"How to use everyone's favourite utility-first CSS framework, Tailwind CSS, alongside the emerging new isomorphic web app framework, SvelteKit! At the time of ...",
-				thumbnails: {
-					default: {
-						url: 'https://i.ytimg.com/vi/iA5_LdfypTM/default.jpg',
-						width: 120,
-						height: 90,
-					},
-					medium: {
-						url: 'https://i.ytimg.com/vi/iA5_LdfypTM/mqdefault.jpg',
-						width: 320,
-						height: 180,
-					},
-					high: {
-						url: 'https://i.ytimg.com/vi/iA5_LdfypTM/hqdefault.jpg',
-						width: 480,
-						height: 360,
-					},
-				},
+				thumbnails: generateThumbnails('iA5_LdfypTM'),
+				publishedAt: '2020-12-22T19:06:12Z',
+				channelId: 'UCm1ALyg61uhPoTnZBm7mY2g',
 				channelTitle: 'Johnny Magrippis',
 				liveBroadcastContent: 'none',
 				publishTime: '2020-12-22T19:06:12Z',
@@ -53,28 +39,12 @@ const searchResultsResponse = {
 				videoId: 'mdFBhNnwRwU',
 			},
 			snippet: {
-				publishedAt: '2020-12-14T18:17:49Z',
-				channelId: 'UCm1ALyg61uhPoTnZBm7mY2g',
 				title: 'VS Code setup with Svelte',
 				description:
 					"Every developer should be working with Syntax Highlighting and automatic formatting: here's how to setup VS Code to work with Svetle, the trending ...",
-				thumbnails: {
-					default: {
-						url: 'https://i.ytimg.com/vi/mdFBhNnwRwU/default.jpg',
-						width: 120,
-						height: 90,
-					},
-					medium: {
-						url: 'https://i.ytimg.com/vi/mdFBhNnwRwU/mqdefault.jpg',
-						width: 320,
-						height: 180,
-					},
-					high: {
-						url: 'https://i.ytimg.com/vi/mdFBhNnwRwU/hqdefault.jpg',
-						width: 480,
-						height: 360,
-					},
-				},
+				thumbnails: generateThumbnails('mdFBhNnwRwU'),
+				publishedAt: '2020-12-14T18:17:49Z',
+				channelId: 'UCm1ALyg61uhPoTnZBm7mY2g',
 				channelTitle: 'Johnny Magrippis',
 				liveBroadcastContent: 'none',
 				publishTime: '2020-12-14T18:17:49Z',
@@ -88,28 +58,12 @@ const searchResultsResponse = {
 				videoId: '5Omb-P9qsP4',
 			},
 			snippet: {
-				publishedAt: '2019-01-19T11:34:22Z',
-				channelId: 'UCm1ALyg61uhPoTnZBm7mY2g',
 				title: 'Slow-motion cooking: Scrambled eggs',
 				description:
 					'Join me in making some delicious scrambled eggs, for a lovely Saturday morning in London! The song is Vamonos by Timothy Infinite, licensed through ...',
-				thumbnails: {
-					default: {
-						url: 'https://i.ytimg.com/vi/5Omb-P9qsP4/default.jpg',
-						width: 120,
-						height: 90,
-					},
-					medium: {
-						url: 'https://i.ytimg.com/vi/5Omb-P9qsP4/mqdefault.jpg',
-						width: 320,
-						height: 180,
-					},
-					high: {
-						url: 'https://i.ytimg.com/vi/5Omb-P9qsP4/hqdefault.jpg',
-						width: 480,
-						height: 360,
-					},
-				},
+				thumbnails: generateThumbnails('5Omb-P9qsP4'),
+				publishedAt: '2019-01-19T11:34:22Z',
+				channelId: 'UCm1ALyg61uhPoTnZBm7mY2g',
 				channelTitle: 'Johnny Magrippis',
 				liveBroadcastContent: 'none',
 				publishTime: '2019-01-19T11:34:22Z',

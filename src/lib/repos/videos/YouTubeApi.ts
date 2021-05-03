@@ -21,7 +21,7 @@ export class VideosYouTubeApiRepo implements VideosInterface {
 	#API_KEY = process.env.YOU_TUBE_API_KEY
 	#CHANNEL_ID = JOHNNY_MAGRIPPIS_CHANNEL_ID
 
-	videos = async (): Promise<Video[]> => {
+	mostPopular = async (): Promise<Video[]> => {
 		const response = await fetch(
 			`https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&channelId=${
 				this.#CHANNEL_ID

@@ -2,7 +2,7 @@ import {videosRepo} from './YouTubeApi'
 
 describe('videos', () => {
 	it('returns an array of videos', async () => {
-		const videos = await videosRepo.videos()
+		const videos = await videosRepo.mostPopular()
 
 		expect(videos).toEqual([
 			{
