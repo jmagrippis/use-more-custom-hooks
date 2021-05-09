@@ -7,9 +7,11 @@ export type Props = {
 }
 
 export const EpisodesList = ({initialEpisodes}: Props) => {
-	const {episodes, refetch} = useEpisodes(initialEpisodes)
+	const {episodes, refetch, isLoading} = useEpisodes(initialEpisodes)
 
-	return (
+	return isLoading ? (
+		<div>loading...</div>
+	) : (
 		<>
 			<h2 className="text-3xl mb-4">Most popular episodes</h2>
 			{episodes ? (

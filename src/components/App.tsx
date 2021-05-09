@@ -1,4 +1,3 @@
-import {Suspense} from 'react'
 import {QueryClientProvider, useQueryErrorResetBoundary} from 'react-query'
 import {ReactQueryDevtools} from 'react-query/devtools'
 import {ErrorBoundary} from 'react-error-boundary'
@@ -33,13 +32,11 @@ export const App = ({Component, pageProps}: AppProps) => {
 				)}
 			>
 				<QueryClientProvider client={queryClient}>
-					<Suspense fallback="loading...">
-						<div className="w-full flex flex-grow flex-col items-center justify-between">
-							<Header />
-							<Component {...pageProps} />
-							<Footer />
-						</div>
-					</Suspense>
+					<div className="w-full flex flex-grow flex-col items-center justify-between">
+						<Header />
+						<Component {...pageProps} />
+						<Footer />
+					</div>
 					<ReactQueryDevtools initialIsOpen={false} />
 				</QueryClientProvider>
 			</ErrorBoundary>

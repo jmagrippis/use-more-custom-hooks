@@ -10,11 +10,11 @@ const getEpisodes = () =>
 		.catch(() => null)
 
 export const useEpisodes = (initialData: Episode[]) => {
-	const {data: episodes, refetch} = useQuery<Episode[] | null>(
+	const {data: episodes, refetch, isLoading} = useQuery<Episode[] | null>(
 		'episodes',
 		getEpisodes,
 		{initialData}
 	)
 
-	return {episodes, refetch}
+	return {episodes, isLoading, refetch}
 }
