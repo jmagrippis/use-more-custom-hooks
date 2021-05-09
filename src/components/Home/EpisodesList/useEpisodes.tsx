@@ -4,12 +4,17 @@ import axios from 'axios'
 import type {Episode} from 'lib/repos/episodes/types'
 
 const getEpisodes = () =>
-	axios.get<Episode[]>('/api/episodes').then(({data}) => data)
+	axios
+		.get<Episode[]>('/api/episodes')
+		.then(({data}) => data)
+		.catch(() => null)
 
-export const useEpisodes = (initialData: Episode[] | undefined) => {
-	const {data} = useQuery<Episode[]>('episodes', getEpisodes, {
-		initialData,
-	})
+export const useEpisodes = (initialData: Episode[]) => {
+	const {data: episodes, refetch} = useQuery<Episode[] | null>(
+		'episodes',
+		getEpisodes,
+		{initialData}
+	)
 
-	return data
+	return {episodes, refetch}
 }

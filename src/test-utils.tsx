@@ -1,14 +1,30 @@
 import React, {ReactElement, Suspense} from 'react'
 import {render, RenderOptions} from '@testing-library/react'
-import {QueryClientProvider} from 'react-query'
+import {QueryClientProvider, useQueryErrorResetBoundary} from 'react-query'
+import {ErrorBoundary} from 'react-error-boundary'
 
 import {queryClient} from 'components/queryClient'
 
-const AllTheProviders = ({children}) => (
-	<QueryClientProvider client={queryClient}>
-		<Suspense fallback="loading...">{children}</Suspense>
-	</QueryClientProvider>
-)
+export const AllTheProviders = ({children}) => {
+	const {reset} = useQueryErrorResetBoundary()
+
+	return (
+		<QueryClientProvider client={queryClient}>
+			<ErrorBoundary
+				onReset={reset}
+				fallbackRender={({resetErrorBoundary, error}) => (
+					<div>
+						<p>There was an error:</p>
+						<pre>{error}</pre>
+						<button onClick={() => resetErrorBoundary()}>Try again</button>
+					</div>
+				)}
+			>
+				<Suspense fallback="loading...">{children}</Suspense>
+			</ErrorBoundary>
+		</QueryClientProvider>
+	)
+}
 
 const customRender = (ui: ReactElement, options: RenderOptions = {}) =>
 	render(ui, {wrapper: AllTheProviders, ...options})

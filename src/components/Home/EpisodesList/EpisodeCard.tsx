@@ -1,5 +1,4 @@
 import type {Video} from 'lib/repos/videos/types'
-import {SeeMore} from './SeeMore'
 import YouTubeIcon from './youtube.svg'
 import PodcastIcon from './podcast.svg'
 

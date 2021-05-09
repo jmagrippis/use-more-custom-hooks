@@ -7,23 +7,30 @@ export type Props = {
 }
 
 export const EpisodesList = ({initialEpisodes}: Props) => {
-	const episodes = useEpisodes(initialEpisodes)
+	const {episodes, refetch} = useEpisodes(initialEpisodes)
 
 	return (
 		<>
 			<h2 className="text-3xl mb-4">Most popular episodes</h2>
-			<ul className="space-y-4">
-				{episodes.map(({video, podcast}) => (
-					<EpisodeCard
-						key={video.id}
-						title={video.title}
-						description={video.description}
-						thumbnails={video.thumbnails}
-						videoLink={video.link}
-						podcastLink={podcast?.link}
-					/>
-				))}
-			</ul>
+			{episodes ? (
+				<ul className="space-y-4">
+					{episodes.map(({video, podcast}) => (
+						<EpisodeCard
+							key={video.id}
+							title={video.title}
+							description={video.description}
+							thumbnails={video.thumbnails}
+							videoLink={video.link}
+							podcastLink={podcast?.link}
+						/>
+					))}
+				</ul>
+			) : (
+				<div>
+					There was an error fetching the episodes!{' '}
+					<button onClick={() => refetch()}>Retry?</button>
+				</div>
+			)}
 		</>
 	)
 }

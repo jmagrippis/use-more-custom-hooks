@@ -2,8 +2,9 @@ import {rest} from 'msw'
 
 import {generateVideo} from 'lib/repos/videos/factories/generateVideos'
 import {generatePodcast} from 'lib/repos/podcasts/factories/generatePodcasts'
+import {Episode} from 'lib/repos/episodes/types'
 
-const hardcodedEpisodes = [
+export const hardcodedEpisodes: Episode[] = [
 	{
 		video: generateVideo({
 			id: 'iA5_LdfypTM',
@@ -33,8 +34,12 @@ const hardcodedEpisodes = [
 	},
 ]
 
-const mostPopularEpisodesHandler = rest.get('/api/episodes', (req, res, ctx) =>
-	res(ctx.status(200), ctx.json(hardcodedEpisodes))
+export const generateMostPopularEpisodesHandler = (episodes: Episode[]) =>
+	rest.get('/api/episodes', (req, res, ctx) =>
+		res(ctx.status(200), ctx.json(episodes))
+	)
+const mostPopularEpisodesHandler = generateMostPopularEpisodesHandler(
+	hardcodedEpisodes
 )
 
 export const episodesHandlers = [mostPopularEpisodesHandler]

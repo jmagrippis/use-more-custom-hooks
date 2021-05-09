@@ -12,6 +12,7 @@
 		"lint": "eslint --ext .js,.jsx,.ts,.tsx src"
 	},
 	"dependencies": {
+		"@testing-library/react-hooks": "^5.1.2",
 		"@vercel/node": "^1.10.0",
 		"axios": "^0.21.1",
 		"next": "^10.2.0",
